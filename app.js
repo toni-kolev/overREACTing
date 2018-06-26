@@ -1,1 +1,11 @@
-ReactDOM.render(<h1>Your name here!</h1>, document.getElementById('app'));
+"use strict";
+
+var element = React.createElement(
+  "h1",
+  null,
+  "Your name here!"
+);
+ReactDOM.render(
+  element,
+  document.getElementById('app')
+);
