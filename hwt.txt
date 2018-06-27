@@ -1,0 +1,5 @@
+npx babel app.js -o app-compiled.js --presets react
+node_modules/.bin/babel index.js --presets react
+
+Req:
+npm install babel-preset-react
