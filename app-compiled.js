@@ -1,3 +1,7 @@
+//import React from './vendor/react';
+//import ReactDOM from './vendor/react-dom';
+import { Monkata } from './MonkataComp';
+
 ReactDOM.render(React.createElement(
   'h1',
   null,
@@ -131,3 +135,100 @@ class ToniComponent extends React.Component {
 React.createElement(ToniComponent, null);
 
 ReactDOM.render(React.createElement(ToniComponent, null), document.getElementById("el10"));
+
+////////////////////////////////////////////////////////////////////////
+
+class QuoteMaker extends React.Component {
+  render() {
+    return React.createElement(
+      'blockquote',
+      null,
+      React.createElement(
+        'p',
+        null,
+        'What is important now is to recover our senses.'
+      ),
+      React.createElement(
+        'cite',
+        null,
+        React.createElement(
+          'a',
+          { target: '_blank', href: 'https://en.wikipedia.org/wiki/Susan_Sontag' },
+          'Susan Sontag'
+        )
+      )
+    );
+  }
+};
+
+ReactDOM.render(React.createElement(QuoteMaker, null), document.getElementById('el11'));
+
+////////////////////////////////////////////////////////////////////////
+
+const owl = {
+  title: 'Excellent Owl',
+  src: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-owl.jpg',
+  width: "250px"
+};
+
+// Component class starts here:
+class Owl extends React.Component {
+  render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'h1',
+        null,
+        owl.title
+      ),
+      React.createElement('img', { src: owl.src, alt: owl.title, width: owl.width })
+    );
+  }
+}
+
+ReactDOM.render(React.createElement(Owl, null), document.getElementById('el12'));
+
+////////////////////////////////////////////////////////////////////////
+const fiftyFifty = Math.random() < 0.5;
+
+// New component class starts here:
+class TonightsPlan extends React.Component {
+  render() {
+    let Answer;
+    if (fiftyFifty) {
+      Answer = "Tonight I'm going out WOOO";
+    } else {
+      Answer = "Tonight I'm going to bed WOOO";
+    }
+
+    return React.createElement(
+      'h1',
+      null,
+      Answer
+    );
+  }
+}
+
+ReactDOM.render(React.createElement(TonightsPlan, null), document.getElementById('el13'));
+
+////////////////////////////////////////////////////////////////////////
+class Button extends React.Component {
+  scream() {
+    alert('AAAAAAAAHHH!!!!!');
+  }
+
+  render() {
+    return React.createElement(
+      'button',
+      { onClick: this.scream },
+      'AAAAAH!'
+    );
+  }
+}
+
+ReactDOM.render(React.createElement(Button, null), document.getElementById('el14'));
+
+////////////////////////////////////////////////////////////////////////
+
+ReactDOM.render(React.createElement(Monkata, null), document.getElementById('el15'));

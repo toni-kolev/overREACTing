@@ -1,3 +1,7 @@
+//import React from './vendor/react';
+//import ReactDOM from './vendor/react-dom';
+import { Monkata } from './MonkataComp';
+
 ReactDOM.render(<h1>Your name HERE!!</h1>, document.getElementById('app'));
 
 var myDiv = (
@@ -116,3 +120,93 @@ ReactDOM.render(
   <ToniComponent />,
   document.getElementById("el10")
 );
+
+
+////////////////////////////////////////////////////////////////////////
+
+class QuoteMaker extends React.Component {
+  render() {
+    return (
+      <blockquote>
+        <p>
+          What is important now is to recover our senses.
+        </p>
+        <cite>
+          <a target="_blank" href="https://en.wikipedia.org/wiki/Susan_Sontag">Susan Sontag</a>
+        </cite>
+      </blockquote>
+    );
+  }
+};
+
+ReactDOM.render(
+  <QuoteMaker />,
+  document.getElementById('el11')
+);
+
+////////////////////////////////////////////////////////////////////////
+
+const owl = {
+  title: 'Excellent Owl',
+  src: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-owl.jpg',
+  width: "250px"
+};
+
+// Component class starts here:
+class Owl extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>{owl.title}</h1>
+        <img src={owl.src} alt={owl.title} width={owl.width}/>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Owl />,
+  document.getElementById('el12')
+);
+
+////////////////////////////////////////////////////////////////////////
+const fiftyFifty = Math.random() < 0.5;
+
+// New component class starts here:
+class TonightsPlan extends React.Component {
+  render() {
+    let Answer;
+    if (fiftyFifty) {
+      Answer = "Tonight I'm going out WOOO"
+    } else {
+      Answer = "Tonight I'm going to bed WOOO"
+    }
+    
+    return <h1>{Answer}</h1>
+  }
+}
+
+ReactDOM.render(
+	<TonightsPlan />,
+	document.getElementById('el13')
+);
+
+////////////////////////////////////////////////////////////////////////
+class Button extends React.Component {
+  scream() {
+    alert('AAAAAAAAHHH!!!!!');
+  }
+
+  render() {
+    return <button onClick={this.scream}>AAAAAH!</button>;
+  }
+}
+
+ReactDOM.render(
+  <Button />,
+  document.getElementById('el14')
+);
+
+////////////////////////////////////////////////////////////////////////
+
+ReactDOM.render(<Monkata />, document.getElementById('el15'));
