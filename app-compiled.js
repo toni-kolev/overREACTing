@@ -1,6 +1,6 @@
 //import React from './vendor/react';
 //import ReactDOM from './vendor/react-dom';
-import { Monkata } from './MonkataComp';
+//import { Monkata } from './MonkataComp';
 
 ReactDOM.render(React.createElement(
   'h1',
@@ -231,4 +231,56 @@ ReactDOM.render(React.createElement(Button, null), document.getElementById('el14
 
 ////////////////////////////////////////////////////////////////////////
 
-ReactDOM.render(React.createElement(Monkata, null), document.getElementById('el15'));
+//ReactDOM.render(<Monkata />, document.getElementById('el15'));
+
+
+////////////////////////////////////////////////////////////////////////
+class Greeting extends React.Component {
+  render() {
+    return React.createElement(
+      'h1',
+      null,
+      'Hi there, ',
+      this.props.firstName
+    );
+  }
+}
+
+ReactDOM.render(React.createElement(Greeting, { firstName: 'Toni' }), document.getElementById('el16'));
+
+////////////////////////////////////////////////////////////////////////
+
+const green = '#39D1B4';
+const yellow = '#FFD712';
+
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { color: green };
+    this.changeColor = this.changeColor.bind(this);
+  }
+
+  changeColor() {
+    const newColor = this.state.color == green ? yellow : green;
+    this.setState({ color: newColor });
+  }
+
+  render() {
+    return React.createElement(
+      'div',
+      { style: { background: this.state.color } },
+      React.createElement(
+        'h1',
+        null,
+        'Change my color'
+      ),
+      React.createElement(
+        'button',
+        { onClick: this.changeColor },
+        'Change color'
+      )
+    );
+  }
+}
+
+ReactDOM.render(React.createElement(Toggle, null), document.getElementById('el17'));
